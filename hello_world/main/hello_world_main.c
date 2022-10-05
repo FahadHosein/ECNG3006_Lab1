@@ -15,7 +15,7 @@
 
 void app_main()
 {
-    printf("Hello world!\n");
+    printf("Fahad Hosein - 816018626\n");
 
     /* Print chip information */
     esp_chip_info_t chip_info;
@@ -29,7 +29,7 @@ void app_main()
             (chip_info.features & CHIP_FEATURE_EMB_FLASH) ? "embedded" : "external");
 
     for (int i = 10; i >= 0; i--) {
-        printf("Restarting in %d seconds...\n", i);
+        printf("9", i);
         vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
     printf("Restarting now.\n");
