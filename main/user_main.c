@@ -21,6 +21,12 @@ static const char *TAG = "main";
 #define I2C_MASTER_TX_BUF_DISABLE   0   // I2C master do not need buffer
 #define I2C_MASTER_RX_BUF_DISABLE   0   // I2C master do not need buffer
 
+// ADS1115 Pin Addresses
+#define ADS1115_GND 0x48
+#define ADS1115_VDD 0x49
+#define ADS1115_SDA 0x4A
+#define ADS1115_SCL 0x4B
+
 #define WRITE_BIT       I2C_MASTER_WRITE // I2C master write
 #define READ_BIT        I2C_MASTER_READ  // I2C master read
 #define ACK_CHECK_EN    0x1              // I2C master will check ack from slave
@@ -29,17 +35,11 @@ static const char *TAG = "main";
 #define NACK_VAL        0x1              // I2C nack value
 #define LAST_NACK_VAL   0x2              // I2C last_nack value
 
-// ADS1115 Pin Addresses
-#define ADS1115_GND    0x48
-#define ADS1115_VDD    0x49
-#define ADS1115_SDA    0x4A
-#define ADS1115_SCL    0x4B
-
 // ADS1115 Register Addresses
-#define ADS1115_CONV        0x00
-#define ADS1115_CONFIG      0x01
-#define ADS1115_LOTHRESH    0x02
-#define ADS1115_HITHRESH    0x03
+#define ADS1115_CONV 0x00
+#define ADS1115_CONFIG 0x01
+#define ADS1115_LOTHRESH 0x02
+#define ADS1115_HITHRESH 0x03
 
 typedef struct conf
 {
@@ -52,7 +52,7 @@ typedef struct conf
     uint8_t COMP_POL;       // Comparator Polarity: 1-Bit
     uint8_t COMP_LAT;       // Latching Comparator: 1-Bit
     uint8_t COMP_QUE;       // Comparator Queue and Disable: 2-Bits
-    uint16_t CONFIG; // 16-bit Configuration
+    uint16_t CONFIG;        // 16-bit Configuration
 } ADS1115_CONF;
 
 static esp_err_t i2c_master_init()
@@ -70,15 +70,10 @@ static esp_err_t i2c_master_init()
     return ESP_OK;
 }
 
-static esp_err_t i2c_master_ads1115_write(i2c_port_t i2c_num, uint8_t reg_address, uint16_t *data, uint16_t data_len)
+static esp_err_t i2c_master_ads1115_write(i2c_port_t i2c_num, uint8_t reg_address, uint8_t *data, size_t data_len)
 {
     int ret;
-    uint8_t write_buf[2];
     i2c_cmd_handle_t cmd = i2c_cmd_link_create();
-
-    write_buf[0] = (*data >> 8) & 0xFF;
-    write_buf[1] = (*data >> 0) & 0xFF;
-
     i2c_master_start(cmd);
     i2c_master_write_byte(cmd, ADS1115_GND << 1 | WRITE_BIT, ACK_CHECK_EN);
     i2c_master_write_byte(cmd, reg_address, ACK_CHECK_EN);
@@ -90,53 +85,10 @@ static esp_err_t i2c_master_ads1115_write(i2c_port_t i2c_num, uint8_t reg_addres
     return ret;
 }
 
-static void conf_data(ADS1115_CONF *conf)
-{
-    uint16_t data;
-
-    data = (conf->OS << 3) | conf->MUX;
-    data = (data << 3) | conf->PGA;
-    data = (data << 1) | conf->MODE;
-    data = (data << 3) | conf->DR;
-    data = (data << 1) | conf->COMP_MODE;
-    data = (data << 1) | conf->COMP_POL;
-    data = (data << 1) | conf->COMP_LAT;
-    data = (data << 2) | conf->COMP_QUE;
-
-    conf->CONFIG = data;
-}
-
-static esp_err_t i2c_master_ads1115_init(i2c_port_t i2c_num)
-{
-    vTaskDelay(200 / portTICK_RATE_MS);
-    i2c_master_init();
-
-    ADS1115_CONF conf;
-    conf.OS     = 0x00;     // NULL
-    conf.MUX    = 0x04;     // AINp = AIN0 and AINn = GND
-    conf.PGA    = 0x01;     // FS = 4.096 V
-    conf.MODE   = 0x00;     // Continuous-Conversion Mode
-    conf.DR     = 0x04;     // 128SPS
-    conf.COMP_MODE  = 0x00; // Traditional Comparator
-    conf.COMP_POL   = 0x00; // Active Low
-    conf.COMP_LAT   = 0x00; // Non-latching Comparator
-    conf.COMP_QUE   = 0x02; // Assert After Four Conversions
-
-    conf_data(&conf);
-
-    // Writing to CONFIG Register
-    ESP_ERROR_CHECK(i2c_master_ads1115_write(i2c_num, ADS1115_CONFIG, conf.CONFIG, 2));
-
-    return ESP_OK;
-}
-
-static esp_err_t i2c_master_ads1115_read(i2c_port_t i2c_num, uint8_t reg_address, uint16_t *data, uint16_t data_len)
+static esp_err_t i2c_master_ads1115_read(i2c_port_t i2c_num, uint8_t reg_address, uint8_t *data, size_t data_len)
 {
     int ret;
-    uint16_t ads_data = 0;
-    uint8_t read_buf[2];
     i2c_cmd_handle_t cmd = i2c_cmd_link_create();
-
     i2c_master_start(cmd);
     i2c_master_write_byte(cmd, ADS1115_GND << 1 | WRITE_BIT, ACK_CHECK_EN);
     i2c_master_write_byte(cmd, reg_address, ACK_CHECK_EN);
@@ -153,23 +105,78 @@ static esp_err_t i2c_master_ads1115_read(i2c_port_t i2c_num, uint8_t reg_address
     cmd = i2c_cmd_link_create();
     i2c_master_start(cmd);
     i2c_master_write_byte(cmd, ADS1115_GND << 1 | READ_BIT, ACK_CHECK_EN);
-    i2c_master_read(cmd, read_buf, data_len, LAST_NACK_VAL);
+    i2c_master_read(cmd, data, data_len, LAST_NACK_VAL);
     i2c_master_stop(cmd);
     ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
     i2c_cmd_link_delete(cmd);
 
-    ads_data = (read_buf[0] << 8) | read_buf[1];
-    *data = ads_data;
-
     return ret;
+}
+
+static esp_err_t data_write(i2c_port_t i2c_num, uint8_t reg_address, uint16_t data)
+{
+    int ret;
+    uint8_t buf[2];
+    buf[0] = (data >> 8) & 0xFF;
+    buf[1] = (data >> 0) & 0xFF;
+
+    ret = i2c_master_ads1115_write(i2c_num, reg_address, buf, 2);
+    return ret;
+}
+
+static esp_err_t data_read(i2c_port_t i2c_num, uint8_t reg_address, uint16_t *data)
+{
+    int ret;
+    uint8_t buf[2];
+
+    ret = i2c_master_ads1115_read(i2c_num, reg_address, buf, 2);
+    *data = (buf[0] << 8) | buf[1];
+    return ret;
+}
+
+static esp_err_t i2c_master_ads1115_init(i2c_port_t i2c_num)
+{
+    vTaskDelay(100 / portTICK_RATE_MS);
+    i2c_master_init();
+
+    ADS1115_CONF conf;
+    conf.OS = 0x00;        // NULL
+    conf.MUX = 0x04;       // AINp = AIN0 and AINn = GND
+    conf.PGA = 0x01;       // FS = 4.096 V
+    conf.MODE = 0x00;      // Continuous-Conversion Mode
+    conf.DR = 0x04;        // 128SPS
+    conf.COMP_MODE = 0x00; // Traditional Comparator
+    conf.COMP_POL = 0x00;  // Active Low
+    conf.COMP_LAT = 0x00;  // Non-latching Comparator
+    conf.COMP_QUE = 0x02;  // Assert After Four Conversions
+
+    uint16_t data;
+    data = (conf.OS << 3) | conf.MUX;
+    data = (data << 3) | conf.PGA;
+    data = (data << 1) | conf.MODE;
+    data = (data << 3) | conf.DR;
+    data = (data << 1) | conf.COMP_MODE;
+    data = (data << 1) | conf.COMP_POL;
+    data = (data << 1) | conf.COMP_LAT;
+    data = (data << 2) | conf.COMP_QUE;
+    conf.CONFIG = data;
+
+    // Output Configuration Bits
+    ESP_LOGI(TAG, "Configuration Bits: %d\n", (int)conf.CONFIG);
+
+    // Writing to CONFIG Register
+    ESP_ERROR_CHECK(data_write(i2c_num, ADS1115_CONFIG, conf.CONFIG));
+
+    return ESP_OK;
 }
 
 static void i2c_task(void *arg)
 {
-    uint16_t sensor_data;
+    uint16_t data;
+    double voltage;
     esp_err_t ret;
 
-    ret = i2c_master_ads1115_init(I2C_MASTER_NUM);
+    ret  = i2c_master_ads1115_init(I2C_MASTER_NUM);
 
     if (ret == ESP_OK)
     {
@@ -181,12 +188,11 @@ static void i2c_task(void *arg)
     }
     while(1)
     {
-        ret = i2c_master_ads1115_read(I2C_MASTER_NUM, ADS1115_CONV, &sensor_data, 1);
+        ret = data_read(I2C_MASTER_NUM, ADS1115_CONV, &data);
         if(ret == ESP_OK)
         {
             ESP_LOGI(TAG, "ADS1115 Read!\n");
-            ESP_LOGI(TAG, "Sensor Data: %d\n", (int)sensor_data);
-            double voltage = (double)sensor_data * 1.25e-4;
+            voltage = (double)data * 1.25e-4;
             ESP_LOGI(TAG, "Voltage = %d.%d V\n", (uint16_t)voltage, (uint16_t)(voltage * 100) % 100);
             vTaskDelay(2000 / portTICK_PERIOD_MS);
         }

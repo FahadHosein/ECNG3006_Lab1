@@ -1,0 +1,117 @@
+
+ ets Jan  8 2013,rst cause:2, boot mode:(3,6)
+
+load 0x40100000, len 7544, room 16
+tail 8
+chksum 0xf8
+load 0x3ffe8408, len 24, room 0
+tail 8
+chksum 0x71
+load 0x3ffe8420, len 3468, room 0
+tail 12
+chksum 0x1c
+csum 0x1c
+I (43) boot: ESP-IDF v3.4-71-g7085cc76 2nd stage bootloader
+I (43) boot: compile time 15:41:57
+I (44) qio_mode: Enabling default flash chip QIO
+I (51) boot: SPI Speed      : 40MHz
+I (58) boot: SPI Mode       : QIO
+I (64) boot: SPI Flash Size : 1MB
+I (70) boot: Partition Table:
+I (76) boot: ## Label            Usage          Type ST Offset   Length
+I (87) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (98) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (110) boot:  2 factory          factory app      00 00 00010000 000f0000
+I (122) boot: End of partition table
+I (128) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x17220 ( 94752) map
+I (173) esp_image: segment 1: paddr=0x00027238 vaddr=0x40227230 size=0x05d20 ( 23840) map
+I (182) esp_image: segment 2: paddr=0x0002cf60 vaddr=0x3ffe8000 size=0x003dc (   988) load
+I (185) esp_image: segment 3: paddr=0x0002d344 vaddr=0x40100000 size=0x00080 (   128) load
+I (198) esp_image: segment 4: paddr=0x0002d3cc vaddr=0x40100080 size=0x04558 ( 17752) load
+I (217) boot: Loaded app from partition at offset 0x10000
+I (331) gpio: GPIO[0]| InputEn: 0| OutputEn: 1| OpenDrain: 1| Pullup: 1| Pulldown: 0| Intr:0
+I (334) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 1| Pullup: 1| Pulldown: 0| Intr:0
+I (344) main: Configuration Bits: 17026
+
+I (352) main: ADS1115 Initialised!
+
+I (359) main: ADS1115 Read!
+
+I (364) main: Voltage = 3.26 V
+
+I (2361) main: ADS1115 Read!
+
+I (2362) main: Voltage = 3.26 V
+
+I (4361) main: ADS1115 Read!
+
+I (4362) main: Voltage = 3.26 V
+
+I (6361) main: ADS1115 Read!
+
+I (6362) main: Voltage = 1.63 V
+
+I (8361) main: ADS1115 Read!
+
+I (8362) main: Voltage = 1.62 V
+
+I (10362) main: ADS1115 Read!
+
+I (10363) main: Voltage = 1.62 V
+
+I (12362) main: ADS1115 Read!
+
+I (12363) main: Voltage = 1.62 V
+
+I (14362) main: ADS1115 Read!
+
+I (14363) main: Voltage = 8.19 V
+
+I (16362) main: ADS1115 Read!
+
+I (16363) main: Voltage = 8.19 V
+
+I (18362) main: ADS1115 Read!
+
+I (18363) main: Voltage = 8.19 V
+
+I (20363) main: ADS1115 Read!
+
+I (20364) main: Voltage = 1.63 V
+
+I (22363) main: ADS1115 Read!
+
+I (22364) main: Voltage = 1.63 V
+
+I (24363) main: ADS1115 Read!
+
+I (24364) main: Voltage = 3.26 V
+
+I (26363) main: ADS1115 Read!
+
+I (26364) main: Voltage = 3.26 V
+
+I (28363) main: ADS1115 Read!
+
+I (28364) main: Voltage = 3.26 V
+
+I (30364) main: ADS1115 Read!
+
+I (30365) main: Voltage = 3.26 V
+
+I (32364) main: ADS1115 Read!
+
+I (32365) main: Voltage = 3.26 V
+
+I (34364) main: ADS1115 Read!
+
+I (34365) main: Voltage = 2.51 V
+
+I (36364) main: ADS1115 Read!
+
+I (36365) main: Voltage = 2.51 V
+
+I (38364) main: ADS1115 Read!
+
+I (38365) main: Voltage = 2.51 V
+
