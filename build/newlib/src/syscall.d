@@ -1,6 +1,6 @@
 src/syscall.o: \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/newlib/src/syscall.c \
- /home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h \
+ /home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
@@ -42,7 +42,7 @@ src/syscall.o: \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/newlib/platform_include/sys/termios.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/newlib/platform_include/sys/poll.h
 
-/home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h:
+/home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h:
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h:
 

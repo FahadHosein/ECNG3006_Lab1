@@ -2,7 +2,7 @@ src/crypto/bignum.o: \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/wpa_supplicant/src/crypto/bignum.c \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/wpa_supplicant/src/utils/includes.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/wpa_supplicant/port/include/supplicant_opt.h \
- /home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h \
+ /home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
@@ -29,7 +29,7 @@ src/crypto/bignum.o: \
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/wpa_supplicant/port/include/supplicant_opt.h:
 
-/home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h:
+/home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h:
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h:
 

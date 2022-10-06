@@ -1,7 +1,7 @@
 src/select.o: \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/newlib/src/select.c \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/newlib/platform_include/sys/select.h \
- /home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h \
+ /home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/vfs/include/esp_vfs.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
@@ -39,7 +39,7 @@ src/select.o: \
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/newlib/platform_include/sys/select.h:
 
-/home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h:
+/home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h:
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/vfs/include/esp_vfs.h:
 

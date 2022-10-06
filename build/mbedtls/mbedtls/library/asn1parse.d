@@ -1,7 +1,7 @@
 mbedtls/library/asn1parse.o: \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/mbedtls/mbedtls/library/asn1parse.c \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/mbedtls/port/include/mbedtls/esp_config.h \
- /home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h \
+ /home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/mbedtls/mbedtls/include/mbedtls/config.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/mbedtls/mbedtls/include/mbedtls/check_config.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/mbedtls/port/include/esp_mem.h \
@@ -16,7 +16,7 @@ mbedtls/library/asn1parse.o: \
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/mbedtls/port/include/mbedtls/esp_config.h:
 
-/home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h:
+/home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h:
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/mbedtls/mbedtls/include/mbedtls/config.h:
 

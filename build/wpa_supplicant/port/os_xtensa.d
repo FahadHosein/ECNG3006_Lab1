@@ -6,7 +6,7 @@ port/os_xtensa.o: \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/esp_libc.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
- /home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h \
+ /home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/heap/port/esp8266/include/esp_heap_config.h \
@@ -37,7 +37,7 @@ port/os_xtensa.o: \
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h:
 
-/home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h:
+/home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h:
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h:
 
