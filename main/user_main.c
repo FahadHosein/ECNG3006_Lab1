@@ -1,13 +1,3 @@
-/* gpio example
-
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
-
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
-*/
-
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -34,7 +24,7 @@ static void gpio_isr_handler(void *arg)
     xQueueSendFromISR(gpio_evt_queue, &gpio_num, NULL);
 }
 
-static void gpio_task_example(void *arg)
+static void gpio_task(void *arg)
 {
     uint32_t io_num;
 
@@ -51,7 +41,7 @@ static void gpio_task_example(void *arg)
                 ESP_LOGI(TAG, "Turning off the LED\n");
                 gpio_set_level(GPIO_OUTPUT_IO, 0);
             }
-            vTaskDelay(1500 / portTICK_RATE_MS);
+            vTaskDelay(1500 / portTICK_PERIOD_MS);
         }
     }
 }
@@ -63,47 +53,43 @@ void app_main(void)
     // GPIO OUTPUT Configuration
     io_conf.intr_type = GPIO_INTR_DISABLE;      // disable interrupt
     io_conf.mode = GPIO_MODE_OUTPUT;            // set as output mode
-    io_conf.pin_bit_mask = GPIO_OUTPUT_PIN_SEL; // bit mask of the pins that you want to set,e.g.GPIO15/16
+    io_conf.pin_bit_mask = (1ULL << GPIO_OUTPUT_IO); // bit mask of the pins that you want to set,e.g.GPIO15/16
     io_conf.pull_down_en = 0;                   // disable pull-down mode
     io_conf.pull_up_en = 0;                     // disable pull-up mode
     gpio_config(&io_conf);                      // configure GPIO with the given settings
 
     // GPIO INPUT Configuration
-    io_conf.intr_type = GPIO_INTR_POSEDGE;      // interrupt of rising edge
-    io_conf.pin_bit_mask = GPIO_INPUT_PIN_SEL;  // bit mask of the pins, use GPIO4/5 here
+    io_conf.intr_type = GPIO_INTR_NEGEDGE;      // interrupt of rising edge
+    io_conf.pin_bit_mask = (1ULL << GPIO_INPUT_IO);  // bit mask of the pins, use GPIO4/5 here
     io_conf.mode = GPIO_MODE_INPUT;             // set as input mode
-    io_conf.pull_up_en = 1;                     // enable pull-up mode
+    io_conf.pull_up_en = 0;                     // disable pull-up mode
     gpio_config(&io_conf);
 
     // Change gpio intrrupt type for one pin
-    gpio_set_intr_type(GPIO_INPUT_IO_0, GPIO_INTR_ANYEDGE);
+    gpio_set_intr_type(GPIO_INPUT_IO, GPIO_INTR_NEGEDGE);
 
     // Create a queue to handle gpio event from isr
     gpio_evt_queue = xQueueCreate(10, sizeof(uint32_t));
+
     // Start gpio task
-    xTaskCreate(gpio_task_example, "gpio_task_example", 2048, NULL, 10, NULL);
+    xTaskCreate(gpio_task, "gpio_task", 2048, NULL, 10, NULL);
 
     // Install gpio isr service
     gpio_install_isr_service(0);
 
     // Hook isr handler for specific gpio pin
-    gpio_isr_handler_add(GPIO_INPUT_IO_0, gpio_isr_handler, (void *) GPIO_INPUT_IO_0);
-
-    // Hook isr handler for specific gpio pin
-    gpio_isr_handler_add(GPIO_INPUT_IO_1, gpio_isr_handler, (void *) GPIO_INPUT_IO_1);
+    gpio_isr_handler_add(GPIO_INPUT_IO, gpio_isr_handler, (void *) GPIO_INPUT_IO);
 
     // Remove isr handler for gpio number.
-    gpio_isr_handler_remove(GPIO_INPUT_IO_0);
+    gpio_isr_handler_remove(GPIO_INPUT_IO);
 
     // Hook isr handler for specific gpio pin again
-    gpio_isr_handler_add(GPIO_INPUT_IO_0, gpio_isr_handler, (void *) GPIO_INPUT_IO_0);
-
-    int cnt = 0;
+    gpio_isr_handler_add(GPIO_INPUT_IO, gpio_isr_handler, (void *) GPIO_INPUT_IO);
 
     while (1) 
     {
-        vTaskDelay(1000 / portTICK_RATE_MS);
         gpio_set_level(GPIO_OUTPUT_IO, 0);
+        vTaskDelay(1000 / portTICK_RATE_MS);
     }
 }
 
