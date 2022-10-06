@@ -1,7 +1,7 @@
 src/esp_heap_caps.o: \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/heap/src/esp_heap_caps.c \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h \
- /home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h \
+ /home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/heap/port/esp8266/include/esp_heap_config.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/heap/port/esp8266/include/esp_heap_port.h \
@@ -16,7 +16,7 @@ src/esp_heap_caps.o: \
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h:
 
-/home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h:
+/home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h:
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h:
 

@@ -6,7 +6,7 @@ lwip/src/core/inet_chksum.o: \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/newlib/platform_include/sys/time.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/vfs/include/sys/ioctl.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp_common/include/esp_task.h \
- /home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h \
+ /home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
@@ -72,7 +72,7 @@ lwip/src/core/inet_chksum.o: \
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/esp_common/include/esp_task.h:
 
-/home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h:
+/home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h:
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h:
 

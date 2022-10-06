@@ -8,7 +8,7 @@ port/esp8266/freertos/sys_arch.o: \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/lwip/port/esp8266/include/arch/sys_arch.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
- /home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h \
+ /home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
@@ -79,7 +79,7 @@ port/esp8266/freertos/sys_arch.o: \
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h:
 
-/home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h:
+/home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h:
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h:
 

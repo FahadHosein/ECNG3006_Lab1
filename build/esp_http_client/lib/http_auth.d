@@ -1,7 +1,7 @@
 lib/http_auth.o: \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp_http_client/lib/http_auth.c \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/tcpip_adapter/include/esp_netif.h \
- /home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h \
+ /home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/esp_wifi_types.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h \
  /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/esp_interface.h \
@@ -90,7 +90,7 @@ lib/http_auth.o: \
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/tcpip_adapter/include/esp_netif.h:
 
-/home/fahad/esp/workspace/LAB1/hello_world/build/include/sdkconfig.h:
+/home/fahad/esp/workspace/LAB1/build/include/sdkconfig.h:
 
 /home/fahad/esp/ESP8266_RTOS_SDK/components/esp8266/include/esp_wifi_types.h:
 
