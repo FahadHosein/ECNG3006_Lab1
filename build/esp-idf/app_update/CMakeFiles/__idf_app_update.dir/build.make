@@ -73,15 +73,15 @@ esp-idf/app_update/CMakeFiles/__idf_app_update.dir/esp_ota_ops.c.s: cmake_force
 esp-idf/app_update/CMakeFiles/__idf_app_update.dir/esp_app_desc.c.obj: esp-idf/app_update/CMakeFiles/__idf_app_update.dir/flags.make
 esp-idf/app_update/CMakeFiles/__idf_app_update.dir/esp_app_desc.c.obj: /home/fahad/esp/ESP8266_RTOS_SDK/components/app_update/esp_app_desc.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fahad/esp/workspace/LAB1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object esp-idf/app_update/CMakeFiles/__idf_app_update.dir/esp_app_desc.c.obj"
-	cd /home/fahad/esp/workspace/LAB1/build/esp-idf/app_update && /home/fahad/esp/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc $(C_DEFINES) -D PROJECT_NAME=\"gpio\" -DPROJECT_VER=\"3d37ac4-dirty\" $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/__idf_app_update.dir/esp_app_desc.c.obj   -c /home/fahad/esp/ESP8266_RTOS_SDK/components/app_update/esp_app_desc.c
+	cd /home/fahad/esp/workspace/LAB1/build/esp-idf/app_update && /home/fahad/esp/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc $(C_DEFINES) -D PROJECT_NAME=\"gpio\" -DPROJECT_VER=\"e7fe2ef-dirty\" $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/__idf_app_update.dir/esp_app_desc.c.obj   -c /home/fahad/esp/ESP8266_RTOS_SDK/components/app_update/esp_app_desc.c
 
 esp-idf/app_update/CMakeFiles/__idf_app_update.dir/esp_app_desc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/__idf_app_update.dir/esp_app_desc.c.i"
-	cd /home/fahad/esp/workspace/LAB1/build/esp-idf/app_update && /home/fahad/esp/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc $(C_DEFINES) -D PROJECT_NAME=\"gpio\" -DPROJECT_VER=\"3d37ac4-dirty\" $(C_INCLUDES) $(C_FLAGS) -E /home/fahad/esp/ESP8266_RTOS_SDK/components/app_update/esp_app_desc.c > CMakeFiles/__idf_app_update.dir/esp_app_desc.c.i
+	cd /home/fahad/esp/workspace/LAB1/build/esp-idf/app_update && /home/fahad/esp/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc $(C_DEFINES) -D PROJECT_NAME=\"gpio\" -DPROJECT_VER=\"e7fe2ef-dirty\" $(C_INCLUDES) $(C_FLAGS) -E /home/fahad/esp/ESP8266_RTOS_SDK/components/app_update/esp_app_desc.c > CMakeFiles/__idf_app_update.dir/esp_app_desc.c.i
 
 esp-idf/app_update/CMakeFiles/__idf_app_update.dir/esp_app_desc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_app_update.dir/esp_app_desc.c.s"
-	cd /home/fahad/esp/workspace/LAB1/build/esp-idf/app_update && /home/fahad/esp/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc $(C_DEFINES) -D PROJECT_NAME=\"gpio\" -DPROJECT_VER=\"3d37ac4-dirty\" $(C_INCLUDES) $(C_FLAGS) -S /home/fahad/esp/ESP8266_RTOS_SDK/components/app_update/esp_app_desc.c -o CMakeFiles/__idf_app_update.dir/esp_app_desc.c.s
+	cd /home/fahad/esp/workspace/LAB1/build/esp-idf/app_update && /home/fahad/esp/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc $(C_DEFINES) -D PROJECT_NAME=\"gpio\" -DPROJECT_VER=\"e7fe2ef-dirty\" $(C_INCLUDES) $(C_FLAGS) -S /home/fahad/esp/ESP8266_RTOS_SDK/components/app_update/esp_app_desc.c -o CMakeFiles/__idf_app_update.dir/esp_app_desc.c.s
 
 # Object files for target __idf_app_update
 __idf_app_update_OBJECTS = \
